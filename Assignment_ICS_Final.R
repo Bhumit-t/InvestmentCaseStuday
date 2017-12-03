@@ -163,7 +163,7 @@ rm(sector_mapping)
 is_investable <- function (country_code, expected_country_code, funding_round_type, raised_amount_usd) {
   condition1 <- country_code == expected_country_code;
   condition2 <- funding_round_type == most_suitable_funding;
-  condition3 <- raised_amount_usd >= 5000000 & raised_amount_usd < 15000000
+  condition3 <- raised_amount_usd >= 5000000 & raised_amount_usd <= 15000000
   return (condition1 & condition2 & condition3)
 }
 
@@ -193,7 +193,7 @@ sprintf("Total number of investments (count): (US) %d (GBR) %d (IN) %d",
         sum(D1_summary$total.count), sum(D2_summary$total.count), sum(D3_summary$total.count))
 
 # Total amount of investment (USD)
-sprintf("Total number of investments (count): (US) $%f (GBR) $%f (IN) $%f",
+sprintf("Total amount of investment (sum): (US) $%f (GBR) $%f (IN) $%f",
         sum(D1_summary$total.amount), sum(D2_summary$total.amount), sum(D3_summary$total.amount))
 
 top_sectors <- c(D1_summary$main_sector[1], D2_summary$main_sector[1], D3_summary$main_sector[1])
